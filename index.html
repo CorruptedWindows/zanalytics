@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Zapping Analytics</title>
+        <script>
+            (async () => {
+              if (window.theme && document.documentElement) {
+                const selected = await window.theme.get();
+                if (selected === "light") {
+                  document.documentElement.classList.add("light-mode");
+                }
+              }
+            })();
+        </script>
+          
+        <link rel="stylesheet" href="styles.css">
+        
+        <!-- Firebase SDK compatibili -->
+        <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+        
+        <!-- Chart.js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+        <!-- CONFIGURAZIONE Firebase -->
+        <script>
+          const firebaseConfig = {
+            apiKey: "AIzaSyDovR7od9zq8tgWxBd_OzXoK-_IE1QgLnQ",
+            authDomain: "zapping-analytics-v1.firebaseapp.com",
+            databaseURL: "https://zapping-analytics-v1-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "zapping-analytics-v1",
+            storageBucket: "zapping-analytics-v1.firebasestorage.app",
+            messagingSenderId: "1014676384542",
+            appId: "1:1014676384542:web:766d5a820b4c5aa848b70f",
+            measurementId: "G-9RSCZ9JE27"
+          };
+      
+          firebase.initializeApp(firebaseConfig);
+        </script>
+      
+        <!-- TUO SCRIPT dashboard -->
+        <script defer src="dashboard.js"></script>
+      </head>      
+    <body>
+    <div class="container">
+        <aside class="sidebar">
+        <h1>Zapping Analytics</h1>
+        <nav>
+            <ul>
+            <li><a href="#dashboard" onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a href="#visualizzation" onclick="showSection('pages')">Visualizzazioni per Pagina</a></li>
+            <li><a href="#webtraffic" onclick="showSection('statistics')">Traffico Web</a></li>
+            <li><a href="#export" onclick="exportData()">Esporta Dati</a></li>
+            </ul>
+        </nav>
+        </aside>
+        <main class="content">
+        <section id="dashboard" class="section active">
+            <h2>Dashboard Generale</h2>
+            <div class="chart-container">
+                <canvas id="chart"></canvas>
+            </div>          
+        </section>
+        <section id="pages" class="section">
+            <h2>Visualizzazioni per Pagina</h2>
+            <table id="pagesTable">
+            <thead>
+                <tr>
+                <th>Pagina</th>
+                <th>Visite</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            </table>
+        </section>
+        <section id="statistics" class="section">
+            <h2>Traffico Web</h2>
+            <div class="chart-container">
+            <h3>🌍 Origine Traffico per Capoluoghi</h3>
+            <canvas id="locationChart"></canvas>
+            </div>
+        </section>           
+        </main>
+    </div>
+    </body>  
+</html>

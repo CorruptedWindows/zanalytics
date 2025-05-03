@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Informazioni - Zapping Analytics</title>
+  <script>
+    (async () => {
+      if (window.theme && document.documentElement) {
+        const selected = await window.theme.get();
+        if (selected === "light") {
+          document.documentElement.classList.add("light-mode");
+        }
+      }
+    })();
+  </script>  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+      display: flex;
+      overflow-y: hidden;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #2c2c2c;
+      border-radius: 20px;
+      padding: 40px;
+      width: 750px;
+      max-width: 95%;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 20px;
+      background-color: #33333300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .logo img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    .info {
+      flex-grow: 1;
+    }
+
+    .info h1 {
+      margin: 0;
+      font-size: 26px;
+      color: #1e90ff;
+      border-bottom: 2px solid #1e90ff;
+      display: inline-block;
+    }
+
+    .info h3 {
+      margin: 10px 0 0 0;
+      font-weight: normal;
+      font-size: 18px;
+      border-bottom: 2px solid #666;
+      display: inline-block;
+    }
+
+    .box {
+      background-color: #1e1e1e;
+      border: 2px solid #555;
+      border-radius: 16px;
+      padding: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .close {
+      margin-left: auto;
+      padding: 8px 18px;
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .close:hover {
+      background-color: #0f7ae5;
+    }
+
+    /* Modalità chiara */
+    .light-mode {
+      background-color: #f2f2f2;
+      color: #111;
+    }
+
+    .light-mode body {
+      background-color: #f2f2f2;
+      color: #111;
+    }
+
+    .light-mode .card,
+    .light-mode .container,
+    .light-mode .box,
+    .light-mode .section,
+    .light-mode .content-box {
+      background-color: #ffffff;
+      color: #222;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .light-mode h1,
+    .light-mode h2,
+    .light-mode h3,
+    .light-mode p,
+    .light-mode label {
+      color: #222;
+    }
+
+    .light-mode .navbar,
+    .light-mode header {
+      background-color: #eaeaea;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .light-mode button {
+      background-color: #1e90ff;
+      color: white;
+    }
+
+    .light-mode button:hover {
+      background-color: #1475d3;
+    }
+
+    .light-mode input,
+    .light-mode select,
+    .light-mode textarea {
+      background-color: #fff;
+      color: #111;
+      border: 1px solid #ccc;
+    }
+
+    .light-mode .close {
+      background-color: #1e90ff;
+      color: white;
+    }
+
+    .light-mode .close:hover {
+      background-color: #1475d3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top">
+      <div class="logo">
+        <img src="icon.ico" alt="Logo Zapping">
+      </div>
+      <div class="info">
+        <h1>Zapping Analytics</h1>
+        <h3>realizzato da Zapping Blog Inc.</h3>
+      </div>
+      <button class="close" onclick="window.close()">Chiudi</button>
+    </div>
+
+    <div class="box">
+      <p>
+        Zapping Analytics è un'app moderna per visualizzare i dati di accesso del tuo blog.<br>
+        Permette di analizzare le pagine più visitate, l'origine geografica degli utenti e altre statistiche utili.<br><br>
+        Costruita con <b>Electron</b>, <b>Firebase</b> e <b>Chart.js</b>, questa app combina performance e stile.
+      </p>
+      <p style="color: #888; font-size: 14px;">
+        Versione 1.1.0 • Ultimo aggiornamento: 30 Aprile 2025
+      </p>
+    </div>
+  </div>
+  <script>
+    (async () => {
+      const theme = await window.theme.get();
+      if (theme === 'light') {
+        document.documentElement.classList.add('light-mode');
+      }
+    })();
+  </script>  
+</body>
+</html>
