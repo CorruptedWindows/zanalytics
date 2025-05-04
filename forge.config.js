@@ -30,7 +30,7 @@ module.exports = {
         format: 'ULFO', // opzionale: stile layout moderno
         overwrite: true,
         icon: 'icon.icns', // se vuoi l’icona personalizzata
-        //background: 'build/background.png' // opzionale: sfondo del dmg
+        background: 'build/background.png' // opzionale: sfondo del dmg
       }
     },    
   ],
