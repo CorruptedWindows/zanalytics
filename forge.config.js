@@ -24,7 +24,15 @@ module.exports = {
       name: '@electron-forge/maker-rpm',
       config: {},
     },
-
+    {
+      name: '@electron-forge/maker-dmg',
+      config: {
+        format: 'ULFO', // opzionale: stile layout moderno
+        overwrite: true,
+        icon: 'icon.icns', // se vuoi l’icona personalizzata
+        //background: 'build/background.png' // opzionale: sfondo del dmg
+      }
+    },    
   ],
   plugins: [
     {
